@@ -7,7 +7,6 @@ function initMedia() {
     
     backgroundMusic.volume = 0.3;
     backgroundVideo.muted = true; 
-    backgroundVideo.play().catch(err => console.error("Video preload failed:", err));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -201,4 +200,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     typeWriterStart();
+
 });
