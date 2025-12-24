@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    const bioMessages = ["You forget a thousand things every day", "\"Owner of Jostar Service!\""];
+    const bioMessages = ["You forget a thousand things every day ~Bilal", "\"Owner of Jostar Service!\""];
     let bioMsgIdx = 0;
     function typeWriterBio() {
         let msg = bioMessages[bioMsgIdx];
@@ -202,4 +202,5 @@ document.addEventListener('DOMContentLoaded', () => {
     typeWriterStart();
 
 });
+
 
