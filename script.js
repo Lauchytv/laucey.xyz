@@ -60,29 +60,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function startExperience() {
-        if (hasUserInteracted) return;
-        hasUserInteracted = true;
-        startScreen.classList.add('hidden');
+    if (hasUserInteracted) return;
+    hasUserInteracted = true;
+    startScreen.classList.add('hidden');
 
-        backgroundMusic.muted = false;
-        backgroundMusic.play().catch(err => console.error("Audio error:", err));
-        backgroundVideo.play();
+    backgroundMusic.muted = false;
+    backgroundMusic.play().catch(err => console.error("Audio error:", err));
+    backgroundVideo.play();
 
-        const resultsBtnContainer = document.getElementById('results-button-container');
-        if (resultsBtnContainer) {
-            resultsBtnContainer.classList.remove('hidden');
-            gsap.to(resultsBtnContainer, { 
-                opacity: 1, y: 0, duration: 1, delay: 0.5, ease: 'power2.out',
-                onStart: () => { resultsBtnContainer.style.pointerEvents = 'all'; }
-            });
-        }
-
-        gsap.fromTo(profileBlock, { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' });
-        if(visitorCount) visitorCount.textContent = (777).toLocaleString('de-DE');
-        
-        typeWriterName();
-        typeWriterBio();
+    // --- BESTEHENDER CODE FÜR RESULTS BUTTON ---
+    const resultsBtnContainer = document.getElementById('results-button-container');
+    if (resultsBtnContainer) {
+        resultsBtnContainer.classList.remove('hidden');
+        gsap.to(resultsBtnContainer, { 
+            opacity: 1, y: 0, duration: 1, delay: 0.5, ease: 'power2.out',
+            onStart: () => { resultsBtnContainer.style.pointerEvents = 'all'; }
+        });
     }
+
+    // --- NEUER CODE FÜR SANDBOX BUTTON ---
+    const sandboxBtnContainer = document.getElementById('sandbox-container');
+    if (sandboxBtnContainer) {
+        sandboxBtnContainer.classList.remove('hidden');
+        // Wir setzen die Opacity erst auf 0, damit GSAP sie sauber hochfaden kann
+        gsap.set(sandboxBtnContainer, { opacity: 0, y: 20 }); 
+        gsap.to(sandboxBtnContainer, { 
+            opacity: 1, 
+            y: 0, 
+            duration: 1, 
+            delay: 0.7, // Ein Tick später als der Results-Button für einen schönen Effekt
+            ease: 'power2.out'
+        });
+    }
+
+    gsap.fromTo(profileBlock, { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' });
+    if(visitorCount) visitorCount.textContent = (777).toLocaleString('de-DE');
+    
+    typeWriterName();
+    typeWriterBio();
+}
 
     startScreen.addEventListener('click', startExperience);
 
@@ -96,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    const bioMessages = ["You forget a thousand things every day ~Bilal", "\"Owner of Jostar Service!\""];
+    const bioMessages = ["Owner of Jostar Service", "\"Hello, World!\""];
     let bioMsgIdx = 0;
     function typeWriterBio() {
         let msg = bioMessages[bioMsgIdx];
@@ -200,7 +216,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     typeWriterStart();
-
 });
-
-
