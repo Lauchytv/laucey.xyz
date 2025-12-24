@@ -839,6 +839,72 @@
     <audio id="anime-music" loop muted><source src="assets/anime_music.mp3" type="audio/mp3"></audio>
     <audio id="car-music" loop muted><source src="assets/car_music.mp3" type="audio/mp3"></audio>
 
+    <div class="sandbox-wrapper hidden" id="sandbox-container">
+    <a href="https://laucey.xyz/sandbox/" class="sandbox-card">
+        <span class="sandbox-label">Sandbox</span>
+        <div class="glossy-shine"></div>
+    </a>
+</div>
+
+    <style>
+        .sandbox-wrapper {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 9999;
+        }
+
+        .sandbox-card {
+            display: inline-block;
+            text-decoration: none;
+            padding: 12px 24px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+            backdrop-filter: blur(15px) saturate(140%);
+            -webkit-backdrop-filter: blur(15px) saturate(140%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            pointer-events: auto; /* Wichtig, damit man klicken kann! */
+        }
+
+        .sandbox-label {
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 13px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        .glossy-shine {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .sandbox-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            border-color: rgba(0, 206, 209, 0.5);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 206, 209, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 430px) {
+            .sandbox-wrapper {
+                bottom: 90px;
+                right: 20px;
+            }
+        }
+    </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="script.js"></script>
 </body>
