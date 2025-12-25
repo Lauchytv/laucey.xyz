@@ -23,6 +23,46 @@ body {
 }
 
 
+*, *::before, *::after {
+    cursor: none !important;
+}
+
+
+input[type="range"]::-webkit-slider-thumb {
+    cursor: none !important;
+    -webkit-appearance: none;
+}
+
+
+input[type="range"]::-moz-range-thumb {
+    cursor: none !important;
+}
+
+
+.custom-cursor {
+    pointer-events: none !important;
+    position: fixed;
+    z-index: 99999;
+}
+  
+
+
+input[type="range"],
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-webkit-slider-thumb,
+input[type="range"]::-moz-range-track,
+input[type="range"]::-moz-range-thumb,
+input[type="range"]::-ms-thumb {
+    cursor: none !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+}
+
+
+body.dragging, body.dragging * {
+    cursor: none !important;
+}
+
 .custom-cursor {
   position: fixed;
   width: 32px;
@@ -863,4 +903,5 @@ body.car-theme {
   30% {
     clip: rect(65px, 9999px, 45px, 0);
   }
+
 }
