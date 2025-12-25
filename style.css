@@ -12,6 +12,13 @@
   transition: all 0.3s ease;
 }
 
+input, select, textarea {
+    font-size: 16px !important; 
+}
+
+body {
+    touch-action: pan-x pan-y; 
+}
 body {
   font-family: 'Space Mono', monospace;
   background: var(--background-dark);
@@ -905,3 +912,4 @@ body.car-theme {
   }
 
 }
+
